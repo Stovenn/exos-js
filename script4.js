@@ -31,17 +31,36 @@ function birthdate(entrepreneurs) {
 };
 
 function names(entrepreneurs) {
-    
+  table = [];
+  for (let index in entrepreneurs) {
+    table.push(entrepreneurs[index].first + " " + entrepreneurs[index].last);
+  }
+  console.log(table);
 };
 
-function age(entrepreneurs) {
-    
+function ages(entrepreneurs) {
+const currentYear = 2020;
+for (let index in entrepreneurs) {
+  let age = currentYear - entrepreneurs[index].year;
+  let lastName = entrepreneurs[index].last
+  let firstName = entrepreneurs[index].first
+  console.log(`${firstName} ${lastName} aurait eu ${age} ans aujoud'hui.`);
+}
 };
 
-function sortName(entrepreneurs) {
-    
+function sortName(a, b) {
+  if (a.last < b.last) {
+    return -1;
+  }
+  if ( a.last > b.last){
+    return 1;
+  }
+  return 0;
 };
 
 
 birthdate(entrepreneurs);
 names(entrepreneurs);
+entrepreneurs.sort((a, b) => a.last.localeCompare(b.last));
+
+console.log(entrepreneurs);
