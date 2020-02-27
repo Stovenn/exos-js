@@ -29,6 +29,7 @@ function rented(books){
 
 rented(books);
 
+//  -----------------------
 
 books.sort(function(a, b){
   let x = a.rented;
@@ -46,6 +47,19 @@ console.log(books[books.length-1]);
 
 //Trouve le livre avec l'ID: 873495 ;
 console.log(books.find(obj => obj.id === 873495));
+
 //Supprime le livre avec l'ID: 133712 ;
-books.splice()
+let removeIndex = books.map(function(item) { return item.id; }).indexOf(133712);
+books.splice(removeIndex, 1);
+console.log(books);
+
 //Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé).
+
+books.sort(function(a, b){
+  let x = a.title;
+  let y = b.title;
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+});
+console.log(books);
